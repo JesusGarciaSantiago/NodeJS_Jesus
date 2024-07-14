@@ -12,7 +12,7 @@ DELETE
 
 app.get ("/", (req, res, next)=>{
     res.status(200);
-    res.send ("Bienvenido");
+    res.send ("Bienvenido al servidor :c");
 
 });
 app.listen(3000, () =>{

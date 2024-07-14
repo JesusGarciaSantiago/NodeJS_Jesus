@@ -1,10 +1,15 @@
 {
   "name": "express-workshop",
   "version": "1.0.0",
-  "description": "An API REST using express.js",
+  "description": "Project for the node.js workshop",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JesusGarciaSantiago/NodeJS_Jesus.git"
   },
   "keywords": [
     "api",
@@ -14,7 +19,12 @@
   ],
   "author": "Jesus GS",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JesusGarciaSantiago/NodeJS_Jesus/issues"
+  },
+  "homepage": "https://github.com/JesusGarciaSantiago/NodeJS_Jesus#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
   }
 }
