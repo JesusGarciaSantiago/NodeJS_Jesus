@@ -1,6 +1,11 @@
 const express = require ('express');
+const bodyparser  = require ("body-parser");
 const app = express ();
 const { pokemon } = require ('./pokedex.json'); 
+const bodyParser = require('body-parser');
+
+app.use (bodyParser.json());
+app.use(bodyParser.urlencoded({extende:true}));
 
 /*
 *Verbos HTTP
@@ -15,6 +20,11 @@ app.get ("/", (req, res, next)=>{
     
    return res.status(200).send ("Bienvenido al Pokedex");
 
+});
+
+
+app.post("/pokemon", (req, res ,next) => {
+    return res.status(200).send(req.body);
 });
 
 app.get ("/pokemon", (req, res, next) =>{
@@ -44,7 +54,7 @@ app.get ('/pokemon/:name([A-Za-z]+)', (req, res, next) => {
     
     const name = req.params.name;
     const pk = pokemon.filter((p) => {
-       return (p.name.toUpperCase() == name.toUpperCase()) ? p : null;    
+       return (p.name.toUpperCase() == name.toUpperCase()) && p ;    
     });
     
     (pk.length > 0) ? res.status(200).send(pk) :  res.status(404).send("Pokémon no encontrado") ;
