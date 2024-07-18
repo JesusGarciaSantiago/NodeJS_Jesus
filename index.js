@@ -20,7 +20,7 @@ app.use(express.urlencoded({extended : true}));
 
 app.get ("/", (req, res, next)=>{
     
-   return res.status(200).json ({code: 1, massage: "Bienvenido al Pokedex"});
+   return res.status(201).json ({code: 201, massage: "Bienvenido al Pokedex"});
 
 });
 
