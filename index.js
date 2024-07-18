@@ -1,14 +1,13 @@
 const express = require ('express');
-const bodyparser  = require ("body-parser");
 const app = express ();
 const pokemon = require ('./routes/pokemon');
-const bodyParser = require('body-parser');
 const morgan = require ('morgan');
 
 
 app.use (morgan('dev'));
-app.use (bodyParser.json());
-app.use(bodyParser.urlencoded({extende:true}));
+app.use(express.json());
+app.use(express.urlencoded({extended : true}));
+
 
 /*
 *Verbos HTTP
@@ -21,11 +20,16 @@ app.use(bodyParser.urlencoded({extende:true}));
 
 app.get ("/", (req, res, next)=>{
     
-   return res.status(200).send ("Bienvenido al Pokedex");
+   return res.status(200).json ({code: 1, massage: "Bienvenido al Pokedex"});
 
 });
 
 app.use("/pokemon", pokemon);
+
+app.use ((re, res, next) =>{
+    return res.status(404).json({code:  404, massage: "URL no encontrada"});
+
+});
 
 app.listen(process.env.PORT || 3000, () =>{
     return console.log ("Server is running...");
