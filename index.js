@@ -25,7 +25,6 @@ app.get ("/", (req, res, next)=>{
 });
 
 app.use("/pokemon", pokemon);
-
 app.use("/user", user);
 
 app.use((req, res, next) =>{
