@@ -78,9 +78,11 @@ pokemon.get ("/", async (req, res, next) =>{
 
 pokemon.get ('/:id([0-9]{1,3})', async (req, res, next) => {
     const id = req.params.id;
-    if (id >= 0 && id <= 722){
+    if (id >= 0 && id <= 800){
 
-        const pok = await db.query ("SELECT * FROM pokemon WHERE  pok_id = "+id+";");        
+        const pok = await db.query ("SELECT * FROM pokemon WHERE  pok_id = "+id+";");  
+        console.log(id);   
+        console.log(pok);   
         return res.status(201).json({code: 1,  massage: pok}); 
     }
         return res.status(404).json ({code: 404, massage: "Pokémon no encontrado"});
